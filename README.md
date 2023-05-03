@@ -125,6 +125,8 @@ Using Github Pages
 
 > The following are the future features that will be added to the project.
 
+- [ ] **[Iw-will-has-a-function-to-mark-the-task-as-completed]**
+- [ ] **[Iw-will-has-a-function-to-drag-and-drop-the-task]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
