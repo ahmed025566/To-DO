@@ -50,9 +50,8 @@ body {
 
 .add-button {
   height: 100%;
-  width: 16.5%;
+  width: 15%;
   border-radius: 5px;
-  margin-left: 1px;
   font-size: 22px;
   border: none;
   cursor: pointer;
@@ -82,18 +81,20 @@ body {
 }
 
 .taskText {
-  width: 80%;
+  width: 70%;
   height: 92%;
   border: none;
-  margin-right: 50px;
+  margin-right: 100px;
   font-size: 18px;
   color: #414a4c;
+  text-transform: capitalize;
 }
 
 .fa-ellipsis-vertical {
-  margin-right: 15px;
+  margin-right: 40px;
   color: #d3d3d3;
   font-size: 20px;
+  cursor: move;
 }
 
 .clear {
@@ -109,4 +110,16 @@ body {
 
 .clearAll {
   cursor: pointer;
+}
+
+.fa-trash-can {
+  position: relative;
+  right: 20px;
+  font-size: 18px;
+  color: #414a4c;
+  cursor: pointer;
+}
+
+.fa-trash-can:hover {
+  color: black;
 }
