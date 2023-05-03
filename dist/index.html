@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To Do App</title>
+    <script src="https://kit.fontawesome.com/8c5a2b9118.js" crossorigin="anonymous"></script>
 <script defer src="main.js"></script></head>
+
 <body>
-    
+    <div class="to-do">
+        <div class="today">
+            <p class="text-intro">Today's To Do</p>
+            <i class="fa-sharp fa-solid fa-rotate"></i>
+        </div>
+        <form action="submit" class="form">
+            <input type="text" class="task-text" placeholder="Add to your list ...">
+            <button type="button" class="add-button">Add</button>
+        </form>
+        <div class="tasksDiv"></div>
+        <div class="clear">
+            <p class="clearAll">Clear all completed</p>
+        </div>
+    </div>
 </body>
+
 </html>
