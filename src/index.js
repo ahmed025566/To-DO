@@ -3,7 +3,7 @@ import './index.css';
 const tasksDiv = document.querySelector('.tasksDiv');
 const form = document.querySelector('.form');
 const text = document.querySelector('.task-text');
-
+const addBtn = document.querySelector('.add-button');
 const saveToStorage = (arrayOfTasks) => {
   for (let i = 0, j = 1; i < arrayOfTasks.length; i += 1, j += 1) {
     arrayOfTasks[i].IDX = j;
@@ -110,4 +110,18 @@ window.addEventListener('DOMContentLoaded', () => {
   resetStyle();
   changeStyle();
   deleteTask();
+});
+
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const task = {
+    id: Date.now(),
+    description: text.value,
+    completed: false,
+    IDX: arrayOfTasks.length + 1,
+  };
+  arrayOfTasks.push(task);
+  text.value = '';
+  saveToStorage(arrayOfTasks);
+  displayData();
 });

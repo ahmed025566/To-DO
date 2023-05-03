@@ -53,7 +53,9 @@ to drag and drop the task).
 > In this project you can see that it has the following
 
 - It has a nice list of tasks that was added dynamicly using javascript.
-- every task is an input filed that have an atrbiute readonly, will have a cool future to edit in the future.
+- every task is an input filed which mean you can edit the task even after addding it.
+- You can delete any task you want.
+- There is a cool future in the localstorage function to update the index of the task.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,7 +125,6 @@ Using Github Pages
 
 > The following are the future features that will be added to the project.
 
-- [ ] **[Iw-will-has-a-function-to-drag-and-drop-the-task]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

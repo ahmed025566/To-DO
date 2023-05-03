@@ -50,9 +50,8 @@ body {
 
 .add-button {
   height: 100%;
-  width: 16.5%;
+  width: 15%;
   border-radius: 5px;
-  margin-left: 1px;
   font-size: 22px;
   border: none;
   cursor: pointer;
