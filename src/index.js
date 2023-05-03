@@ -35,6 +35,7 @@ const displayData = () => {
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
+  if(text.value !== ''){
   const task = {
     id: Date.now(),
     description: text.value,
@@ -45,6 +46,7 @@ form.addEventListener('submit', (e) => {
   text.value = '';
   saveToStorage(arrayOfTasks);
   displayData();
+}
 });
 const edit = () => {
   tasksDiv.addEventListener('input', (e) => {
@@ -112,16 +114,3 @@ window.addEventListener('DOMContentLoaded', () => {
   deleteTask();
 });
 
-addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const task = {
-    id: Date.now(),
-    description: text.value,
-    completed: false,
-    IDX: arrayOfTasks.length + 1,
-  };
-  arrayOfTasks.push(task);
-  text.value = '';
-  saveToStorage(arrayOfTasks);
-  displayData();
-});
