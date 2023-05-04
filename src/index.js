@@ -3,7 +3,7 @@ import './index.css';
 const tasksDiv = document.querySelector('.tasksDiv');
 const form = document.querySelector('.form');
 const text = document.querySelector('.task-text');
-
+const clear = document.querySelector('.clearAll');
 const saveToStorage = (arrayOfTasks) => {
   for (let i = 0, j = 1; i < arrayOfTasks.length; i += 1, j += 1) {
     arrayOfTasks[i].IDX = j;
@@ -105,6 +105,35 @@ const reset = () => {
   });
 };
 
+const markComplete = () => {
+  tasksDiv.addEventListener('click', (e) => {
+    if (e.target.classList.contains('fa-square')) {
+      for (let i = 0; i < arrayOfTasks.length; i += 1) {
+        if (arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
+          arrayOfTasks[i].completed === false ? arrayOfTasks[i].completed = true
+            : arrayOfTasks[i].completed = false;
+          saveToStorage(arrayOfTasks);
+        }
+        if (arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
+          e.target.parentElement.childNodes[0].style.background = 'black';
+        }
+        if (!arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
+          e.target.parentElement.childNodes[0].style.background = 'white';
+        }
+      }
+    }
+  });
+};
+
+const filterArray = () => {
+  arrayOfTasks = arrayOfTasks.filter((task) => !task.completed);
+  saveToStorage(arrayOfTasks);
+};
+
+clear.addEventListener('click', () => {
+  filterArray();
+  displayData();
+});
 window.addEventListener('DOMContentLoaded', () => {
   displayData();
   edit();
@@ -112,4 +141,6 @@ window.addEventListener('DOMContentLoaded', () => {
   resetStyle();
   changeStyle();
   deleteTask();
+  markComplete();
 });
+/* eslint no-unused-expressions: "off" */
