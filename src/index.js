@@ -1,10 +1,12 @@
 import './index.css';
+import markComplete, { changeColor } from './modules/complete.js';
 
 const tasksDiv = document.querySelector('.tasksDiv');
 const form = document.querySelector('.form');
 const text = document.querySelector('.task-text');
+const clear = document.querySelector('.clearAll');
 
-const saveToStorage = (arrayOfTasks) => {
+export const saveToStorage = (arrayOfTasks) => {
   for (let i = 0, j = 1; i < arrayOfTasks.length; i += 1, j += 1) {
     arrayOfTasks[i].IDX = j;
   }
@@ -17,7 +19,7 @@ const getFromStorage = () => {
   return storage;
 };
 
-let arrayOfTasks = getFromStorage();
+export let arrayOfTasks = getFromStorage();
 
 const displayData = () => {
   tasksDiv.innerHTML = '';
@@ -25,7 +27,14 @@ const displayData = () => {
     const div = document.createElement('div');
     div.className = 'task';
     div.setAttribute('data-id', task.id);
-    div.innerHTML = '<i class="fa-regular fa-square"></i>';
+    const check = document.createElement('i');
+    
+    check.className = 'fa-regular fa-square';
+    if(task.completed) {
+      
+      check.style.background = 'black';
+    }
+    div.append(check)
     div.innerHTML += `<input type="text" class = "taskText" value="${task.description}">`;
 
     div.innerHTML += '<i class="fa-solid fa-trash-can"></i>';
@@ -105,6 +114,15 @@ const reset = () => {
   });
 };
 
+const filterArray = () => {
+  arrayOfTasks = arrayOfTasks.filter((task) => !task.completed);
+  saveToStorage(arrayOfTasks);
+};
+
+clear.addEventListener('click', () => {
+  filterArray();
+  displayData();
+});
 window.addEventListener('DOMContentLoaded', () => {
   displayData();
   edit();
@@ -112,4 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
   resetStyle();
   changeStyle();
   deleteTask();
+  markComplete();
+
 });
+/* eslint no-unused-expressions: "off" */
