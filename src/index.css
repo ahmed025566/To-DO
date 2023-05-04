@@ -123,3 +123,7 @@ body {
 .fa-trash-can:hover {
   color: black;
 }
+
+.complete {
+  background-color: black;
+}

@@ -1,5 +1,5 @@
 import './index.css';
-import markComplete from './modules/complete.js';
+import markComplete, { changeColor } from './modules/complete.js';
 
 const tasksDiv = document.querySelector('.tasksDiv');
 const form = document.querySelector('.form');
@@ -27,7 +27,14 @@ const displayData = () => {
     const div = document.createElement('div');
     div.className = 'task';
     div.setAttribute('data-id', task.id);
-    div.innerHTML = '<i class="fa-regular fa-square"></i>';
+    const check = document.createElement('i');
+    
+    check.className = 'fa-regular fa-square';
+    if(task.completed) {
+      
+      check.style.background = 'black';
+    }
+    div.append(check)
     div.innerHTML += `<input type="text" class = "taskText" value="${task.description}">`;
 
     div.innerHTML += '<i class="fa-solid fa-trash-can"></i>';
@@ -124,5 +131,6 @@ window.addEventListener('DOMContentLoaded', () => {
   changeStyle();
   deleteTask();
   markComplete();
+
 });
 /* eslint no-unused-expressions: "off" */

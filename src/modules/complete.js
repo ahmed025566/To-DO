@@ -11,12 +11,13 @@ export default () => {
           saveToStorage(arrayOfTasks);
         }
         if (arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
-          e.target.parentElement.childNodes[0].style.background = 'black';
+          e.target.parentElement.childNodes[0].style.background = 'black'
         }
         if (!arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
-          e.target.parentElement.childNodes[0].style.background = 'white';
+            e.target.parentElement.childNodes[0].style.background = 'white'
         }
       }
     }
   });
 };
+
