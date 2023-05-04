@@ -1,10 +1,12 @@
 import './index.css';
+import markComplete from './modules/complete.js';
 
 const tasksDiv = document.querySelector('.tasksDiv');
 const form = document.querySelector('.form');
 const text = document.querySelector('.task-text');
 const clear = document.querySelector('.clearAll');
-const saveToStorage = (arrayOfTasks) => {
+
+export const saveToStorage = (arrayOfTasks) => {
   for (let i = 0, j = 1; i < arrayOfTasks.length; i += 1, j += 1) {
     arrayOfTasks[i].IDX = j;
   }
@@ -17,7 +19,7 @@ const getFromStorage = () => {
   return storage;
 };
 
-let arrayOfTasks = getFromStorage();
+export let arrayOfTasks = getFromStorage();
 
 const displayData = () => {
   tasksDiv.innerHTML = '';
@@ -100,26 +102,6 @@ const reset = () => {
       for (let i = 0; i < tasksDiv.childNodes.length; i += 1) {
         tasksDiv.childNodes[i].style.background = '#fff';
         tasksDiv.childNodes[i].childNodes[1].style.background = '#fff';
-      }
-    }
-  });
-};
-
-const markComplete = () => {
-  tasksDiv.addEventListener('click', (e) => {
-    if (e.target.classList.contains('fa-square')) {
-      for (let i = 0; i < arrayOfTasks.length; i += 1) {
-        if (arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
-          arrayOfTasks[i].completed === false ? arrayOfTasks[i].completed = true
-            : arrayOfTasks[i].completed = false;
-          saveToStorage(arrayOfTasks);
-        }
-        if (arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
-          e.target.parentElement.childNodes[0].style.background = 'black';
-        }
-        if (!arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
-          e.target.parentElement.childNodes[0].style.background = 'white';
-        }
       }
     }
   });
