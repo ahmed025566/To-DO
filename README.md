@@ -56,6 +56,7 @@ to drag and drop the task).
 - every task is an input filed which mean you can edit the task even after addding it.
 - You can delete any task you want.
 - There is a cool future in the localstorage function to update the index of the task.
+- It has a function to mark the task as completed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -125,7 +126,7 @@ Using Github Pages
 
 > The following are the future features that will be added to the project.
 
-- [ ] **[Iw-will-has-a-function-to-mark-the-task-as-completed]**
+
 - [ ] **[Iw-will-has-a-function-to-drag-and-drop-the-task]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
