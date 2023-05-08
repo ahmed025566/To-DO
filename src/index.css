@@ -122,4 +122,9 @@ body {
 
 .fa-trash-can:hover {
   color: black;
+  
+}
+.complete {
+  text-decoration: line-through;
+  color: #d0d0d0;
 }

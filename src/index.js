@@ -1,5 +1,5 @@
 import './index.css';
-import markComplete, { changeColor } from './modules/complete.js';
+import markComplete from './modules/complete.js';
 
 const tasksDiv = document.querySelector('.tasksDiv');
 const form = document.querySelector('.form');
@@ -28,35 +28,25 @@ const displayData = () => {
     div.className = 'task';
     div.setAttribute('data-id', task.id);
     const check = document.createElement('i');
-    
+
     check.className = 'fa-regular fa-square';
-    if(task.completed) {
-      
+    if (task.completed) {
       check.style.background = 'black';
     }
-    div.append(check)
-    div.innerHTML += `<input type="text" class = "taskText" value="${task.description}">`;
-
+    div.append(check);
+    const text = document.createElement('input');
+    text.type = 'text';
+    text.className = 'taskText';
+    text.setAttribute('value', task.description);
+    if (task.completed) {
+      text.classList.add('complete');
+    }
+    div.append(text);
     div.innerHTML += '<i class="fa-solid fa-trash-can"></i>';
     tasksDiv.append(div);
   });
 };
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (text.value !== '') {
-    const task = {
-      id: Date.now(),
-      description: text.value,
-      completed: false,
-      IDX: arrayOfTasks.length + 1,
-    };
-    arrayOfTasks.push(task);
-    text.value = '';
-    saveToStorage(arrayOfTasks);
-    displayData();
-  }
-});
 const edit = () => {
   tasksDiv.addEventListener('input', (e) => {
     for (let i = 0; i < arrayOfTasks.length; i += 1) {
@@ -119,6 +109,26 @@ const filterArray = () => {
   saveToStorage(arrayOfTasks);
 };
 
+const addTask = () => {
+  const task = {
+    id: Date.now(),
+    description: text.value,
+    completed: false,
+    IDX: arrayOfTasks.length + 1,
+  };
+  arrayOfTasks.push(task);
+  text.value = '';
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  if (text.value !== '') {
+    addTask();
+    saveToStorage(arrayOfTasks);
+    displayData();
+  }
+});
+
 clear.addEventListener('click', () => {
   filterArray();
   displayData();
@@ -131,6 +141,5 @@ window.addEventListener('DOMContentLoaded', () => {
   changeStyle();
   deleteTask();
   markComplete();
-
 });
 /* eslint no-unused-expressions: "off" */

@@ -11,13 +11,16 @@ export default () => {
           saveToStorage(arrayOfTasks);
         }
         if (arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
-          e.target.parentElement.childNodes[0].style.background = 'black'
+          e.target.parentElement.childNodes[0].style.background = 'black';
+          e.target.parentElement.childNodes[1].style['text-decoration'] = 'line-through';
+          e.target.parentElement.childNodes[1].style.color = '#d3d3d3';
         }
         if (!arrayOfTasks[i].completed && arrayOfTasks[i].id === +e.target.parentElement.getAttribute('data-id')) {
-            e.target.parentElement.childNodes[0].style.background = 'white'
+          e.target.parentElement.childNodes[0].style.background = 'white';
+          e.target.parentElement.childNodes[1].style['text-decoration'] = 'none';
+          e.target.parentElement.childNodes[1].style.color = '#000';
         }
       }
     }
   });
 };
-

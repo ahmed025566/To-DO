@@ -20,7 +20,7 @@
     },
     "ignorePatterns": [
       "dist/",
-      "build/",
+      "build/"
       "complete.js",
       "index.js"
     ]
